@@ -56,6 +56,20 @@ export default [
         info: '',
         subcontrols: [
           {
+            id: 'Demo', // matches .csv column name
+            label: 'Demo layer',
+            defaultVisibility: true,
+            legend: {
+              type: 'gradient',
+              defaultRange: { min: 0, max: 42 },
+              domain: [0, 50],
+              unit: 'x',
+            },
+            layerIds: ['Demo'],
+            info:
+              'This is just a dummy layer demonstrating how to add a new colum to the existing csv.',
+          },
+          {
             id: 'Main Electricity', // matches .csv column name
             label: 'Grid Connection',
             defaultVisibility: false,
@@ -65,7 +79,6 @@ export default [
               domain: [0, 100],
               unit: '%',
             },
-            color: colors.accent1,
             layerIds: ['Main Electricity'],
             info:
               'Percentage of households in each area that are lit by electricity from a grid connection. <br> Here is how.',
