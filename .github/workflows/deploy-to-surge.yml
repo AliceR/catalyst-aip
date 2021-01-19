@@ -1,9 +1,11 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_run:
+    workflows: ['Build and Test']
+    types:
+      - completed
+    branches: [develop]
 
 jobs:
   build-and-deploy:
