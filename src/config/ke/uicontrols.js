@@ -1,4 +1,11 @@
-import { AdminBoundaries, Energy, Population, Public } from '../../icons'
+import {
+  AdminBoundaries,
+  Energy,
+  Population,
+  Public,
+  // Health,
+  Placeholder,
+} from '../../icons'
 import theme from '../theme'
 const { colors } = theme
 
@@ -7,6 +14,7 @@ export default [
     id: 'admin',
     label: 'Administrative Boundaries',
     icon: AdminBoundaries,
+    description: '',
     info: 'Administritative boundaries from the Government of Kenya.',
     controls: [
       {
@@ -39,6 +47,7 @@ export default [
     id: 'energy',
     label: 'Energy',
     icon: Energy,
+    description: '',
     info: 'Information on Energy Sources.',
     controls: [
       {
@@ -56,12 +65,14 @@ export default [
               domain: [0, 100],
               unit: '%',
             },
+            color: colors.accent1,
             layerIds: ['Main Electricity'],
-            info: '',
+            info:
+              'Percentage of households in each area that are lit by electricity from a grid connection. <br> Here is how.',
           },
           {
             id: 'Low-Quality Stopgap Total', // matches .csv column name
-            label: 'Low-Quality Stopgap Total',
+            label: 'Low-Quality Stopgap (Total)',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -74,7 +85,7 @@ export default [
           },
           {
             id: 'Kerosene (Total)', // matches .csv column name
-            label: 'Kerosene',
+            label: 'Kerosene (Total)',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -87,7 +98,7 @@ export default [
           },
           {
             id: 'Paraffin Pressure Lamp', // matches .csv column name
-            label: 'Paraffin Pressure Lamp',
+            label: 'Kerosene Pressure Lamp',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -100,7 +111,7 @@ export default [
           },
           {
             id: 'Paraffin Lantern', // matches .csv column name
-            label: 'Paraffin Lantern',
+            label: 'Kerosene Lantern',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -113,7 +124,7 @@ export default [
           },
           {
             id: 'Paraffin Tin Lamp', // matches .csv column name
-            label: 'Paraffin Tin Lamp',
+            label: 'Kerosene Tin Lamp',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -165,7 +176,7 @@ export default [
           },
           {
             id: 'Solar', // matches .csv column name
-            label: 'Solar',
+            label: 'Solar System',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -178,7 +189,7 @@ export default [
           },
           {
             id: 'Torch / Spotlight (Solar-Charged)', // matches .csv column name
-            label: 'Torch / Spotlight (Solar-Charged)',
+            label: 'Solar Lantern',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -191,7 +202,7 @@ export default [
           },
           {
             id: 'Torch / Spotlight (Dry Cells))', // matches .csv column name
-            label: 'Torch / Spotlight (Dry Cells))',
+            label: 'Dry-Cell Powered Torch',
             defaultVisibility: false,
             legend: {
               type: 'gradient',
@@ -287,7 +298,7 @@ export default [
             defaultVisibility: false,
             legend: { type: 'line', color: colors.highlight },
             layerIds: ['gridfinder'],
-            info: '',
+            info: 'Source: GridFinder',
           },
           {
             id: 'transmission_lines_11kv',
@@ -295,7 +306,7 @@ export default [
             defaultVisibility: false,
             legend: { type: 'line', color: colors.accent9 },
             layerIds: ['transmission_lines_11kv'],
-            info: '',
+            info: 'Source: KPLC',
           },
           {
             id: 'transmission_lines_66kv',
@@ -303,7 +314,7 @@ export default [
             defaultVisibility: false,
             legend: { type: 'line', color: colors.accent10 },
             layerIds: ['transmission_lines_66kv'],
-            info: '',
+            info: 'Source: KPLC',
           },
           {
             id: 'transmission_lines_220kv',
@@ -311,7 +322,7 @@ export default [
             defaultVisibility: false,
             legend: { type: 'line', color: colors.accent11 },
             layerIds: ['transmission_lines_220kv'],
-            info: '',
+            info: 'Source: KPLC',
           },
         ],
       },
@@ -322,7 +333,7 @@ export default [
         subcontrols: [
           {
             id: 'mini-grids_under_development',
-            label: 'Mini-grids under development',
+            label: 'Mini-grids Under Development',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['mini-grids_under_development'],
@@ -330,7 +341,7 @@ export default [
           },
           {
             id: 'existing_mini-grids',
-            label: 'Existing mini-grids',
+            label: 'Existing Mini-Grids',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent2 },
             layerIds: ['existing_mini-grids'],
@@ -338,7 +349,7 @@ export default [
           },
           {
             id: 'proposed_kosap_mini-grids',
-            label: 'Proposed kosap mini-grids',
+            label: 'Proposed KOSAP Mini-Grids',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent3 },
             layerIds: ['proposed_kosap_mini-grids'],
@@ -350,8 +361,9 @@ export default [
   },
   {
     id: 'facilities',
-    label: 'Services and Institutions',
+    label: 'Institutions and Services',
     icon: Public,
+    description: '',
     info:
       'Locations of Financial Services, Schools, Doctors, Hospitals and other Health Institutions.',
     controls: [
@@ -362,11 +374,11 @@ export default [
         subcontrols: [
           {
             id: 'banks',
-            label: 'Banks (OSM)',
+            label: 'Banks',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent5 },
             layerIds: ['banks'],
-            info: '',
+            info: 'Source: OSM',
           },
           {
             id: 'mfi',
@@ -387,13 +399,14 @@ export default [
         ],
       },
       {
-        id: 'health',
+        id: 'healthFacs',
         label: 'Health Facilities',
-        info: 'Displays the locations of the health facilities in Kenya by the facility type.',
+        info:
+          'Displays the locations of the health facilities in Kenya by the facility type.',
         subcontrols: [
           {
             id: 'health_type1',
-            label: 'Type 1',
+            label: 'District & Sub-District Hospitals',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['health_type1'],
@@ -401,7 +414,7 @@ export default [
           },
           {
             id: 'health_type2',
-            label: 'Type 2',
+            label: 'Provincial Hospitals',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent7 },
             layerIds: ['health_type2'],
@@ -409,7 +422,7 @@ export default [
           },
           {
             id: 'health_type3',
-            label: 'Type 3',
+            label: 'Health Centers',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent3 },
             layerIds: ['health_type3'],
@@ -417,7 +430,7 @@ export default [
           },
           {
             id: 'health_type4',
-            label: 'Type 4',
+            label: 'Dispensaries',
             defaultVisibility: false,
             legend: { type: 'dot', color: colors.accent4 },
             layerIds: ['health_type4'],
@@ -425,52 +438,53 @@ export default [
           },
         ],
       },
-	  {
+      {
         id: 'education',
         label: 'Education Facilities',
-        info: 'Displays the locations of the education facilities in Kenya by the facility type.',
+        info:
+          'Displays the locations of the education facilities in Kenya by the facility type.',
         subcontrols: [
-		{
-			id: 'all_education',
-			label: 'All Education Facilities',
-			defaultVisibility: false,
-			legend: { type: 'dot', color: colors.charmpink },
-			layerIds: ['all_education'],
-			info: '',
-		},
-		{
-			id: 'ke_kindergarten',
-			label: 'Kindergartens',
-			defaultVisibility: false,
-			legend: { type: 'dot', color: colors.accent1 },
-			layerIds: ['ke_kindergarten'],
-			info: '',
-		},
-		{
-			id: 'ke_schools',
-			label: 'Schools',
-			defaultVisibility: false,
-			legend: { type: 'dot', color: colors.accent2},
-			layerIds: ['ke_schools'],
-			info: '',
-		},
-				{
-			id: 'ke_colleges',
-			label: 'Colleges',
-			defaultVisibility: false,
-			legend: { type: 'dot', color: colors.accent3},
-			layerIds: ['ke_colleges'],
-			info: '',
-		},
-				{
-			id: 'ke_universities',
-			label: 'Universities',
-			defaultVisibility: false,
-			legend: { type: 'dot', color: colors.accent4},
-			layerIds: ['ke_universities'],
-			info: '',
-		},
-		],
+          {
+            id: 'all_education',
+            label: 'All Education Facilities',
+            defaultVisibility: false,
+            legend: { type: 'dot', color: colors.charmpink },
+            layerIds: ['all_education'],
+            info: '',
+          },
+          {
+            id: 'ke_kindergarten',
+            label: 'Kindergartens',
+            defaultVisibility: false,
+            legend: { type: 'dot', color: colors.accent1 },
+            layerIds: ['ke_kindergarten'],
+            info: '',
+          },
+          {
+            id: 'ke_schools',
+            label: 'Schools',
+            defaultVisibility: false,
+            legend: { type: 'dot', color: colors.accent2 },
+            layerIds: ['ke_schools'],
+            info: '',
+          },
+          {
+            id: 'ke_colleges',
+            label: 'Colleges',
+            defaultVisibility: false,
+            legend: { type: 'dot', color: colors.accent3 },
+            layerIds: ['ke_colleges'],
+            info: '',
+          },
+          {
+            id: 'ke_universities',
+            label: 'Universities',
+            defaultVisibility: false,
+            legend: { type: 'dot', color: colors.accent4 },
+            layerIds: ['ke_universities'],
+            info: '',
+          },
+        ],
       },
     ],
   },
@@ -478,41 +492,91 @@ export default [
     id: 'demographics',
     label: 'Population & Demographics',
     icon: Population,
+    description: '',
     info: 'Population density, demographic statistics and Night Lights.',
     controls: [
       {
-        id: 'arc',
-        label: 'Population Density (ARC 2016)',
-        defaultVisibility: false,
-        legend: 'none',
-        layerIds: ['arc-population-density'],
-        info: '',
+        id: 'popAndMovement',
+        label: 'Population and Movement',
+        info:
+          'Displays where the people of Kenya live and the patterns in their movement.',
+        subcontrols: [
+          {
+            id: 'arc',
+            label: 'Population Density (Heatmap)',
+            defaultVisibility: false,
+            legend: 'none',
+            layerIds: ['arc-population-density'],
+            info: 'Source: Arc 2016',
+          },
+          {
+            id: 'fb-population',
+            label: 'Population Density (HD)',
+            defaultVisibility: false,
+            legend: 'none',
+            layerIds: ['fb-population-density'],
+            info: 'Source: Facebook',
+          },
+        ],
       },
       {
-        id: 'fb-population',
-        label: 'FB Population Density',
-        defaultVisibility: false,
-        legend: 'none',
-        layerIds: ['fb-population-density'],
-        info: '',
+        id: 'ageRanges',
+        label: 'Age Ranges',
+        info: 'Breakdown of the regions by the age of their population.',
+        subcontrols: [
+          // Add layers here
+        ],
       },
       {
-        id: 'compress',
-        label: 'Night Lights',
-        defaultVisibility: false,
-        legend: 'none',
-        layerIds: ['compress'],
-        info: '',
+        id: 'householdChar',
+        label: 'Household Characteristics',
+        info:
+          'Descriptive statistics of the households located in each region.',
+        subcontrols: [
+          // Add layers here
+        ],
       },
+      // {
+      // id: 'compress',
+      // label: 'Night Lights',
+      // defaultVisibility: false,
+      // legend: 'none',
+      // layerIds: ['compress'],
+      // info: '',
+      // },
     ],
   },
   {
     id: 'mobileData',
     label: 'Mobile Data',
-    icon: Public,
-    description:
-      'Mobile Coverage Data © Collins Bartholomew and GSMA 2020',
-	controls: [
+    icon: Placeholder,
+    description: '',
+    info: 'Mobile Coverage Data © Collins Bartholomew and GSMA 2020',
+    controls: [
+      {
+        id: 'allCarrier',
+        label: 'All Carriers',
+        info:
+          'Coverage from all carriers as self reported by the carriers in survey responses.',
+        subcontrols: [
+          {
+            id: 'ke_mobile_2g',
+            label: 'Kenya 2G Coverage',
+            defaultVisibility: false,
+            legend: 'none',
+            layerIds: ['ke_mobile_2g'],
+            info: '',
+          },
+          {
+            id: 'all3g',
+            label: 'Kenya 3G Coverage',
+            defaultVisibility: false,
+            legend: 'none',
+            layerIds: ['ke_mobile_3g'],
+            info: '',
+          },
+        ],
+      },
       {
         id: 'airtel',
         label: 'AirTel',
@@ -522,26 +586,26 @@ export default [
             id: 'airtel2g',
             label: 'AirTel 2G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['mobile_data_airtel_2g'],
             info: '',
-          }, 
-		  {
+          },
+          {
             id: 'airtel3g',
             label: 'AirTel 3G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent4 },
             layerIds: ['mobile_data_airtel_3g'],
             info: '',
-          }, 
-		  {
+          },
+          {
             id: 'airtel4g',
             label: 'AirTel 4G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent3 },
             layerIds: ['mobile_data_airtel_4g'],
             info: '',
-          }, 
+          },
         ],
       },
       {
@@ -553,7 +617,7 @@ export default [
             id: 'orange2g',
             label: 'Orange 2G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['mobile_data_orange_2g'],
             info: '',
           },
@@ -561,7 +625,7 @@ export default [
             id: 'orange3g',
             label: 'Orange 3G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent4 },
             layerIds: ['mobile_data_orange_3g'],
             info: '',
           },
@@ -569,13 +633,13 @@ export default [
             id: 'orange4g',
             label: 'Orange 4G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent3 },
             layerIds: ['mobile_data_orange_4g'],
             info: '',
           },
         ],
       },
-	  {
+      {
         id: 'safaricom',
         label: 'Safaricom',
         info: 'Coverage on the Safaricom Network',
@@ -584,7 +648,7 @@ export default [
             id: 'safaricom2g',
             label: 'Safaricom 2G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['mobile_data_safaricom_2g'],
             info: '',
           },
@@ -592,7 +656,7 @@ export default [
             id: 'safaricom3g',
             label: 'Safaricom 3G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent4 },
             layerIds: ['mobile_data_safaricom_3g'],
             info: '',
           },
@@ -600,13 +664,13 @@ export default [
             id: 'safaricom4g',
             label: 'Safaricom 4G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent3 },
             layerIds: ['mobile_data_safaricom_4g'],
             info: '',
           },
         ],
       },
-	  {
+      {
         id: 'yu',
         label: 'YuMobile',
         info: 'Coverage on the YuMobile Network',
@@ -615,7 +679,7 @@ export default [
             id: 'yu2g',
             label: 'YuMobile 2G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent1 },
             layerIds: ['mobile_data_yu_2g'],
             info: '',
           },
@@ -623,10 +687,195 @@ export default [
             id: 'yu3g',
             label: 'YuMobile 3G',
             defaultVisibility: false,
-            legend: 'none',
+            legend: { type: 'dot', color: colors.accent4 },
             layerIds: ['mobile_data_yu_3g'],
             info: '',
           },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'health',
+    label: 'Health',
+    icon: Placeholder,
+    description: '',
+    info: 'Explores access to services that impact health and health outcomes.',
+    controls: [
+      {
+        id: 'wasteDisposal',
+        label: 'Mode of Human Waste Disposal',
+        info: '',
+        subcontrols: [
+          // {
+          // id: 'arc',
+          // label: 'Population Density (Heatmap)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['arc-population-density'],
+          // info: 'Source: Arc 2016',
+          // },
+          // {
+          // id: 'fb-population',
+          // label: 'Population Density (HD)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['fb-population-density'],
+          // info: 'Source: Facebook',
+          // },
+        ],
+      },
+      {
+        id: 'drinkingWater',
+        label: 'Source of Drinking Water',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+      {
+        id: 'births',
+        label: 'Births',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+    ],
+  },
+  {
+    id: 'hhAssets',
+    label: 'Household Assets',
+    icon: Placeholder,
+    description: '',
+    info: 'Assets and ownership.',
+    controls: [
+      {
+        id: 'electronic_appliance',
+        label: 'Electronics and Appliances',
+        info: '',
+        subcontrols: [
+          // {
+          // id: 'arc',
+          // label: 'Population Density (Heatmap)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['arc-population-density'],
+          // info: 'Source: Arc 2016',
+          // },
+          // {
+          // id: 'fb-population',
+          // label: 'Population Density (HD)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['fb-population-density'],
+          // info: 'Source: Facebook',
+          // },
+        ],
+      },
+      {
+        id: 'vehicles',
+        label: 'Vehicles',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+    ],
+  },
+  {
+    id: 'economicHealth',
+    label: 'Economic Health',
+    icon: Placeholder,
+    description: '',
+    info: 'Assets and ownership.',
+    controls: [
+      {
+        id: 'roof',
+        label: 'Roof Material',
+        info: '',
+        subcontrols: [
+          // Add layers here
+          // {
+          // id: 'arc',
+          // label: 'Population Density (Heatmap)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['arc-population-density'],
+          // info: 'Source: Arc 2016',
+          // },
+          // {
+          // id: 'fb-population',
+          // label: 'Population Density (HD)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['fb-population-density'],
+          // info: 'Source: Facebook',
+          // },
+        ],
+      },
+      {
+        id: 'wall_material',
+        label: 'Wall Material',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+      {
+        id: 'floor_material',
+        label: 'Floor Material',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+    ],
+  },
+  {
+    id: 'economicActivity',
+    label: 'Economic Activity',
+    icon: Placeholder,
+    description: '',
+    info: 'Work and Expenditure',
+    controls: [
+      {
+        id: 'industry_participation',
+        label: 'Industry Participation',
+        info: '',
+        subcontrols: [
+          // {
+          // id: 'arc',
+          // label: 'Population Density (Heatmap)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['arc-population-density'],
+          // info: 'Source: Arc 2016',
+          // },
+          // {
+          // id: 'fb-population',
+          // label: 'Population Density (HD)',
+          // defaultVisibility: false,
+          // legend: 'none',
+          // layerIds: ['fb-population-density'],
+          // info: 'Source: Facebook',
+          // },
+        ],
+      },
+      {
+        id: 'livestock_fish',
+        label: 'Livestock & Fish',
+        info: '',
+        subcontrols: [
+          // Add layers here
+        ],
+      },
+      {
+        id: 'permanent_crops',
+        label: 'Permanent Crop Growth',
+        info: '',
+        subcontrols: [
+          // Add layers here
         ],
       },
     ],

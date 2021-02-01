@@ -12,6 +12,7 @@ const { colors } = theme
  *
  * See: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/
  */
+var mobileOpacity = 0.35
 
 export default [
   {
@@ -32,15 +33,16 @@ export default [
       'raster-opacity': 0.5,
     },
   },
-  {
-    id: 'compress',
-    source: 'compress',
-    'source-layer': 'compress-7pv3v4',
-    type: 'raster',
-    paint: {
-      'raster-opacity': 0.5,
-    },
-  },
+
+  // {
+  // id: 'compress',
+  // source: 'compress',
+  // 'source-layer': 'compress-7pv3v4',
+  // type: 'raster',
+  // paint: {
+  // 'raster-opacity': 0.5,
+  // },
+  // },
   {
     id: 'all_education',
     source: 'all_education',
@@ -51,38 +53,38 @@ export default [
     },
   },
   {
-	id: 'ke_kindergarten',
-	source: 'ke_kindergarten',
-	'source-layer': 'Kenya_Education_Kindergarten-5ky2rp',
-	type: 'circle',
-	paint: {
+    id: 'ke_kindergarten',
+    source: 'ke_kindergarten',
+    'source-layer': 'Kenya_Education_Kindergarten-5ky2rp',
+    type: 'circle',
+    paint: {
       'circle-color': colors.accent1,
     },
   },
   {
-	id: 'ke_schools',
-	source: 'ke_schools',
-	'source-layer': 'Kenya_Education_School-8odt1x',
-	type: 'circle',
-	paint: {
+    id: 'ke_schools',
+    source: 'ke_schools',
+    'source-layer': 'Kenya_Education_School-8odt1x',
+    type: 'circle',
+    paint: {
       'circle-color': colors.accent2,
     },
   },
   {
-	id: 'ke_colleges',
-	source: 'ke_colleges',
-	'source-layer': 'Kenya_Education_College-34ukfd',
-	type: 'circle',
-	paint: {
+    id: 'ke_colleges',
+    source: 'ke_colleges',
+    'source-layer': 'Kenya_Education_College-34ukfd',
+    type: 'circle',
+    paint: {
       'circle-color': colors.accent3,
     },
   },
   {
-	id: 'ke_universities',
-	source: 'ke_universities',
-	'source-layer': 'Kenya_Education_University-79bh8a',
-	type: 'circle',
-	paint: {
+    id: 'ke_universities',
+    source: 'ke_universities',
+    'source-layer': 'Kenya_Education_University-79bh8a',
+    type: 'circle',
+    paint: {
       'circle-color': colors.accent4,
     },
   },
@@ -254,6 +256,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent1,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -262,7 +265,8 @@ export default [
     'source-layer': 'Kenya_AirTel_3G-2rbgg2',
     type: 'fill',
     paint: {
-      'fill-color': colors.accent2,
+      'fill-color': colors.accent4,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -272,6 +276,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent3,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -281,6 +286,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent1,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -289,7 +295,8 @@ export default [
     'source-layer': 'Kenya_Orange_Telkom_Kenya_3G-5jhw51',
     type: 'fill',
     paint: {
-      'fill-color': colors.accent2,
+      'fill-color': colors.accent4,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -299,6 +306,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent3,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -308,6 +316,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent1,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -316,7 +325,8 @@ export default [
     'source-layer': 'Kenya_Safaricom_3G-cncrjf',
     type: 'fill',
     paint: {
-      'fill-color': colors.accent2,
+      'fill-color': colors.accent4,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -326,6 +336,7 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent3,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
@@ -335,17 +346,35 @@ export default [
     type: 'fill',
     paint: {
       'fill-color': colors.accent1,
+      'fill-opacity': mobileOpacity,
     },
   },
   {
     id: 'mobile_data_yu_3g',
     source: 'mobile_data_yu_3g',
-    'source-layer': 'Kenya_yuMobile_2G-346xcb',
+    'source-layer': 'Kenya_yuMobile_3G-346xcb',
     type: 'fill',
     paint: {
-      'fill-color': colors.accent2,
+      'fill-color': colors.accent4,
+      'fill-opacity': mobileOpacity,
     },
   },
-  
-  
+  {
+    id: 'ke_mobile_2g',
+    source: 'ke_mobile_2g',
+    'source-layer': 'MCE_KE2G_2020-2bfoj1',
+    type: 'raster',
+    paint: {
+      'raster-opacity': mobileOpacity,
+    },
+  },
+  {
+    id: 'ke_mobile_3g',
+    source: 'ke_mobile_3g',
+    'source-layer': 'MCE_KE3G_2020-4yzo7v',
+    type: 'raster',
+    paint: {
+      'raster-opacity': mobileOpacity,
+    },
+  },
 ]

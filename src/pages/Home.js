@@ -52,16 +52,19 @@ const Image = styled.figure`
   background-size: auto 100%;
   background-position: center;
 
-  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+  clip-path: polygon(25% 0%, 115% 0%, 100% 100%, 25% 100%, 0% 50%);
   z-index: -1;
 `
 
 export default function Home({ siteAcronym, siteName, imageUrl, theme }) {
   return (
     <PageLayout siteAcronym={siteAcronym} theme={theme}>
-	  <Logo />
+      <Logo />
       <Introduction>
-        <Tagline>Welcome to the</Tagline>
+        <Tagline>
+          <br />
+          Welcome to the
+        </Tagline>
         <PageTitle>{siteName}</PageTitle>
         <Paragraph>
           AIP is an open-source platform for data analysis, visualizations, and
@@ -86,7 +89,7 @@ export default function Home({ siteAcronym, siteName, imageUrl, theme }) {
         </Actions>
       </Introduction>
       <Image url={imageUrl} />
-	  <PartnersBlock>
+      <PartnersBlock>
         <Paragraph as='div'>
           In partnership with <Credits />
         </Paragraph>
